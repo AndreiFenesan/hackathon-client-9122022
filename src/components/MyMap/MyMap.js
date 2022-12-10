@@ -1,10 +1,10 @@
 import React, {useMemo} from "react";
 import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api"
 import "./Map.css"
-import icon from "./full-moon.png"
+import icon from "../../full-moon.png"
+import parkIcon from "../../signage.png"
 
-
-export default function MyMap({positions, userPosition, setNewParking}) {
+export default function MyMap({positions, userPosition, setNewParking, setViewCoordinates}) {
     const options = {
         disableDefaultUI: true,
         styles: [
@@ -127,26 +127,47 @@ export default function MyMap({positions, userPosition, setNewParking}) {
         ]
     };
 
-    const pct = useMemo(() => (userPosition), [])
+    const [mapRef, setMapRef] = React.useState(null);
+    const handleOnLoad = map => {
+        setMapRef(map);
+    };
+
+    function handleOnCenterChanged() {
+        if (mapRef !== null) {
+            console.log(mapRef.getZoom())
+            setViewCoordinates({
+                lat: mapRef.getCenter().lat(),
+                lng: mapRef.getCenter().lng(),
+            })
+        }
+    }
 
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY
     })
 
-
     const markers = positions.map(position => {
         const latAndLng = {lat: position.lat, lng: position.lng}
         return <MarkerF position={latAndLng}
                         key={position.id}
-                        onClick={() => setNewParking({id:position.id,name:position.name})}
+                        onClick={() => setNewParking({id: position.id, name: position.name})}
+                        icon={parkIcon}
         />
     })
+
     const userLocationMarker = <MarkerF position={userPosition} icon={icon}/>
+
     if (!isLoaded) {
         return <div>Loading...</div>
     }
     return (
-        <GoogleMap zoom={17} center={userPosition} mapContainerClassName={"map-container"} options={options}>
+        <GoogleMap zoom={17}
+                   center={userPosition}
+                   mapContainerClassName={"map-container"}
+                   options={options}
+                   onLoad={handleOnLoad}
+                   onCenterChanged={handleOnCenterChanged}
+        >
             {markers.length > 0 && markers}
             {userLocationMarker}
         </GoogleMap>

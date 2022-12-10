@@ -1,0 +1,8 @@
+.searchAreaButton{
+    position: absolute;
+    z-index: 1000;
+    top:20px;
+    right: 48vw;
+    height: 30px;
+    padding: 5px;
+}
