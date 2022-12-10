@@ -27,11 +27,28 @@ export default function MyMap(pos) {
               ]
             },
             {
+              "featureType": "poi.business",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
               "featureType": "poi.park",
               "elementType": "geometry.fill",
               "stylers": [
                 {
                   "color": "#ade3a6"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text",
+              "stylers": [
+                {
+                  "visibility": "off"
                 }
               ]
             },
