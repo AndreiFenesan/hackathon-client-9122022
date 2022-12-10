@@ -1,0 +1,39 @@
+.delete-card-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.delete-card-button {
+    cursor: pointer;
+
+    width: 45px;
+    height: 45px;
+
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    border: none;
+    border-radius: 50%;
+
+    background: #8bafed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 500ms;
+}
+
+.delete-card-button:hover {
+    transition: 200ms;
+    border-radius: 50%;
+    background-color: cornflowerblue;
+}
+
+.delete-card-button:active {
+    background-color: #4e7ac8;
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
