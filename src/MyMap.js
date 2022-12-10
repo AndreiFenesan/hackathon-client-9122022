@@ -1,7 +1,8 @@
 import React, {useMemo} from "react";
 import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api"
 import "./Map.css"
-import Parking from "./components/parking/Parking";
+import icon from "./full-moon.png"
+
 
 export default function MyMap({positions, userPosition, setNewParking}) {
     const options = {
@@ -140,12 +141,14 @@ export default function MyMap({positions, userPosition, setNewParking}) {
                         onClick={() => setNewParking({id:position.id,name:position.name})}
         />
     })
+    const userLocationMarker = <MarkerF position={userPosition} icon={icon}/>
     if (!isLoaded) {
         return <div>Loading...</div>
     }
     return (
-        <GoogleMap zoom={17} center={pct} mapContainerClassName={"map-container"} options={options}>
+        <GoogleMap zoom={17} center={userPosition} mapContainerClassName={"map-container"} options={options}>
             {markers.length > 0 && markers}
+            {userLocationMarker}
         </GoogleMap>
     )
 

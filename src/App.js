@@ -24,7 +24,7 @@ function App() {
             lng: userPos.lng,
             range: 100000
         },).then(response => response.data.result.public)
-            .then(data =>setPositions(data))
+            .then(data =>{console.log(data); setPositions(data)})
             .catch(err => console.log(err))
     }, [userPos])
 
