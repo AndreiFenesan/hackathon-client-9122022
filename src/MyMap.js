@@ -150,7 +150,7 @@ export default function MyMap({positions}) {
         return <div>Loading...</div>
     }
     return (
-        <GoogleMap zoom={10} center={userPos} mapContainerClassName={"map-container"} options={options}>
+        <GoogleMap zoom={17} center={userPos} mapContainerClassName={"map-container"} options={options}>
             {markers}
         </GoogleMap>
     )
