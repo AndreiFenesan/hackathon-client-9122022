@@ -4,10 +4,10 @@ import './App.css';
 import MyMap from "./MyMap";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 function App() {
-
+    const positions = [{lat: 44, lng: -80}, {lat: 45, lng: -90}]
   return (
     <div className="App">
-      <MyMap position={{lat:40, lng:-80}}/>
+      <MyMap positions={positions}/>
     </div>
   );
 }
