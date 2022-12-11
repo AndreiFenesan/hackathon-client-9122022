@@ -1,10 +1,10 @@
 import React from "react";
-import './App.css';
-import MyMap from "./components/MyMap/MyMap";
+import '../App.css';
+import MyMap from "../components/MyMap/MyMap";
 //import axios from "./api";
 import axios from "axios";
-import Parking from "./components/parking/Parking";
-import SearchAreaButton from "./components/SearchAreaButton/SearchAreaButton";
+import Parking from "../components/parking/Parking";
+import SearchAreaButton from "../components/SearchAreaButton/SearchAreaButton";
 
 
 function MapPage() {
