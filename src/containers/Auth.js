@@ -27,6 +27,8 @@ function Auth(props) {
                 setCookie('token', response.data.token, {path: '/', sameSite: true});
                 setCookie('refreshToken', response.data.refreshToken, {path: '/', sameSite: true});
             }).catch(error => {
+                setCookie('token', null, {path: '/', sameSite: true});
+                setCookie('refreshToken', null, {path: '/', sameSite: true});
                 localStorage.removeItem('token');
                 localStorage.removeItem('refreshToken');
             });

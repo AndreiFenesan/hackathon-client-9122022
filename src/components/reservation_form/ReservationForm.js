@@ -1,23 +1,13 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 
-export default function ReservationForm() {
-    const [formData, setFormData] = React.useState({
-        checkInTime: "",
-        checkOutTime: "",
-        reservationDate: "",
-    })
+export default function ReservationForm({formData,setFormData}) {
 
-    React.useEffect(() => {
-        if(formData.checkOutTime && formData.reservationDate && formData.checkInTime){
-            console.log(formData)
-        }
-    }, [formData])
 
     return <Form className={"form"}>
         <div>
             <label className={"label"}>Reservation date</label>
-            <Form.Control type={"date"} className={"date-picker"} onChange={(event) => {
+            <Form.Control value={formData.reservationDate} type={"date"} className={"date-picker"} onChange={(event) => {
                 setFormData(prevState => {
                     return (
                         {
@@ -32,7 +22,7 @@ export default function ReservationForm() {
 
         <div className={"time-pickers-container"}>
             <label className={"label"}>Check-in time</label>
-            <Form.Control type={"time"} className={"reservation-time"} onChange={(e) => {
+            <Form.Control value={formData.checkInTime}  type={"time"} className={"reservation-time"} onChange={(e) => {
                 setFormData(prevState => {
                     return (
                         {
@@ -44,7 +34,7 @@ export default function ReservationForm() {
             }
             }></Form.Control>
             <label className={"label"}>Check-out time</label>
-            <Form.Control type={"time"} className={"reservation-time"} onChange={(e) => {
+            <Form.Control value={formData.checkOutTime} type={"time"} className={"reservation-time"} onChange={(e) => {
                 setFormData(prevState => {
                     return (
                         {

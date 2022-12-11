@@ -2,9 +2,10 @@ import React from "react";
 import api from "../api";
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
+import "./LoginPage.css"
 
 function LoginPage() {
-    const [userData, setUserData] = React.useState({email:'',password:'', errorMessage:''});
+    const [userData, setUserData] = React.useState({email: '', password: '', errorMessage: ''});
 
     const [cookies, setCookie] = useCookies(['token', 'refreshToken']);
 
@@ -14,7 +15,7 @@ function LoginPage() {
         setUserData(prevState => (
                 {
                     ...prevState,
-                    [ev.target.name]:ev.target.value
+                    [ev.target.name]: ev.target.value
                 }
             )
         )
@@ -42,13 +43,17 @@ function LoginPage() {
     }
 
     return (
-        <div>
-            <form method="POST" onSubmit={submitTheForm}>
+        <div className={"screen"}>
+            <form className={"form-container"} method="POST" onSubmit={submitTheForm}>
                 <label>Email</label>
-                <input name={"email"} type={"email"} value={userData.email} onChange={updateUserData} />
+                <input name={"email"} className={"email"} type={"email"} value={userData.email}
+                       onChange={updateUserData}/>
                 <label>Password</label>
-                <input name={"password"} type={"password"} value={userData.password} onChange={updateUserData} />
-                <input type={"submit"} value={"Log in"} />
+                <input name={"password"} className={"password"} type={"password"} value={userData.password}
+                       onChange={updateUserData}/>
+                <div className={"button-div"}>
+                    <input type={"submit"} className={"login-button"} value={"Log in"}/>
+                </div>
                 <label>{userData.errorMessage}</label>
             </form>
         </div>
