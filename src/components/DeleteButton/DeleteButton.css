@@ -1,21 +1,21 @@
 .delete-card-icon {
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
 }
 
 .delete-card-button {
     cursor: pointer;
 
-    width: 45px;
-    height: 45px;
+    width: 20px;
+    height: 20px;
 
     position: absolute;
     top: 15px;
-    right: 40px;
+    right: 15px;
     border: none;
     border-radius: 50%;
 
-    background: #8bafed;
+    background: #c0c0c0;
 
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@
 .delete-card-button:hover {
     transition: 200ms;
     border-radius: 50%;
-    background-color: cornflowerblue;
+    background-color: rgba(214, 0, 46, 0.689);
 }
 
 .delete-card-button:active {

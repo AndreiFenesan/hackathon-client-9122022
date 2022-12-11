@@ -5,7 +5,7 @@ import MyMap from "../components/MyMap/MyMap";
 import api from "../api";
 import Parking from "../components/parking/Parking";
 import SearchAreaButton from "../components/SearchAreaButton/SearchAreaButton";
-
+import './MapPage.css';
 
 function MapPage() {
     const [positions, setPositions] = React.useState([]);
@@ -54,7 +54,7 @@ function MapPage() {
 
     return (
         <div className="App">
-            <SearchAreaButton onClick={onSearchAreaButtonClick}/>
+            <SearchAreaButton onClick={onSearchAreaButtonClick} className={"login-button"}/>
             {parking.id !== null &&
                 <Parking parkingSpotObject={parking}
                          deleteClickHandler={() => setParking({id: null, name: null})}></Parking>}

@@ -2,7 +2,7 @@ import React from 'react';
 import api from '../api';
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
-
+import "./LoginPage.css"
 function RegisterCarPage() {
     const [vehicleData, setVehicleData] = React.useState({registrationPlate: '', fuelId: undefined, pollutionStandard: undefined, errorMessage: ''});
     const [fuels, setFuels] = React.useState([]);
@@ -54,17 +54,18 @@ function RegisterCarPage() {
     }
 
     return (
-        <div>
-            <form method="POST" onSubmit={submitTheForm}>
+        <div className='screen'>
+            <form method="POST" onSubmit={submitTheForm} className={"form-container"}>
                 <label>Registration plate</label>
-                <input name={"registrationPlate"} type={"text"} value={vehicleData.registrationPlate} onChange={updateVehicleData} />
+                <input name={"registrationPlate"} type={"text"} className='email' value={vehicleData.registrationPlate} onChange={updateVehicleData} />
                 <label>Pollution standard (Euro)</label>
-                <input name={"pollutionStandard"} type={"number"} value={vehicleData.pollutionStandard} onChange={updateVehicleData} />
+                <input name={"pollutionStandard"} type={"number"} className='email' value={vehicleData.pollutionStandard} onChange={updateVehicleData} />
                 <label>Fuel</label>
-                <select name={"fuelId"} onChange={updateVehicleData}>
+                <select name={"fuelId"} className='email' onChange={updateVehicleData}>
                     {getFuels()}
                 </select> 
-                <input type={"submit"} value={"Add vehicle"} />
+                <div className='button-div'>
+                <input type={"submit"} className='login-button' value={"Add vehicle"} /></div>
                 <label>{vehicleData.errorMessage}</label>
             </form>
         </div>

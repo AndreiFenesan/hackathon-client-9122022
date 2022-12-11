@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './LoginPage.css';
 function RegisterPage() {
     let navigate = useNavigate();
     const [userData, setUserData] = React.useState({
@@ -37,12 +38,17 @@ function RegisterPage() {
 
 
     return (
-        <div>
-            <form method={'POST'} onSubmit={onSubmitUserData}>
-                <input name={"name"} type={"text"} placeholder={"Name"} onChange={onUserDataChange}/>
-                <input name={"email"} type={"text"} placeholder={"Email"} onChange={onUserDataChange}/>
-                <input name={"password"} type={"text"} placeholder={"password"} onChange={onUserDataChange}/>
-                <input type={"submit"} value={"Register"}/>
+        <div className="screen">
+            <form method={'POST'} className='form-container' onSubmit={onSubmitUserData}>
+                <label>Name</label>
+                <input name={"name"} className='email' type={"text"} placeholder={"Name"} onChange={onUserDataChange}/>
+                <label>Email</label>
+                <input name={"email"} className='email' type={"text"} placeholder={"Email"} onChange={onUserDataChange}/>
+                <label>Password</label>
+                <input name={"password"} className='email' type={"text"} placeholder={"password"} onChange={onUserDataChange}/>
+                <div className="button-div">
+                <input type={"submit"} className='login-button' value={"Register"}/>
+                </div>
             </form>
         </div>
     );
