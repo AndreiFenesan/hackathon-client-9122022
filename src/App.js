@@ -5,12 +5,13 @@ import MapPage from "./containers/MapPage";
 import RegisterPage from "./containers/RegisterPage";
 import LoginPage from "./containers/LoginPage";
 import RegisterCarPage from "./containers/RegisterCarPage";
-
+import Auth from "./containers/Auth";
 
 function App() {
     
 
     return (
+        <Auth>
         <BrowserRouter>
         <Routes>
             <Route path={"/"} element={<MapPage />} />
@@ -19,6 +20,7 @@ function App() {
             <Route path={"/login"} element={<LoginPage />} />
         </Routes>
         </BrowserRouter>
+        </Auth>
     );
 }
 

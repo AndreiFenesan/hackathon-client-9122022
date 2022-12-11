@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 function LoginPage() {
     const [userData, setUserData] = React.useState({email:'',password:'', errorMessage:''});
 
-    const [cookies, setCookie] = useCookies(['token', 'refresh_token']);
+    const [cookies, setCookie] = useCookies(['token', 'refreshToken']);
 
     const navigate = useNavigate();
 

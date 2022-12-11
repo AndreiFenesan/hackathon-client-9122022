@@ -2,7 +2,6 @@ import React from 'react';
 import api from '../api';
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
-import { useJsApiLoader } from '@react-google-maps/api';
 
 function RegisterCarPage() {
     const [vehicleData, setVehicleData] = React.useState({registrationPlate: '', fuelId: undefined, pollutionStandard: undefined, errorMessage: ''});
