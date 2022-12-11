@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import MyMap from "../components/MyMap/MyMap";
 //import axios from "./api";
-import axios from "axios";
+import api from "../api";
 import Parking from "../components/parking/Parking";
 import SearchAreaButton from "../components/SearchAreaButton/SearchAreaButton";
 
@@ -23,7 +23,7 @@ function MapPage() {
     }, [])
 
     React.useEffect(() => {
-        axios.post("http://192.168.0.2:8080/api/fetch-parking", {
+        api.post("/api/fetch-parking", {
             lat: userPos.lat,
             lng: userPos.lng,
             range: 100000
@@ -36,7 +36,7 @@ function MapPage() {
     }, [])
 
     React.useEffect(() => {
-        axios.post("http://192.168.0.2:8080/api/fetch-parking", {
+        api.post("/api/fetch-parking", {
             lat: viewPortCoordinates.lat,
             lng: viewPortCoordinates.lng,
             range: 100000
