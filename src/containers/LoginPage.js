@@ -1,11 +1,14 @@
 import React from "react";
 import api from "../api";
 import {useCookies} from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
 
 function LoginPage() {
     const [userData, setUserData] = React.useState({email:'',password:'', errorMessage:''});
 
     const [cookies, setCookie] = useCookies(['token', 'refresh_token']);
+
+    const navigate = useNavigate();
 
     const updateUserData = (ev) => {
         setUserData(prevState => (
@@ -27,6 +30,7 @@ function LoginPage() {
             expires.setTime(expires.getTime() + (process.env.REACT_APP_REFRESH_TOKEN_DURATION_SECONDS * 1000));
             setCookie('token', res.data.token, {path: '/', expires, sameSite: true});
             setCookie('refreshToken', res.data.refreshToken, {path: '/', expires, sameSite: true});
+            navigate('/');
         }).catch(err => {
             setUserData(prevState => (
                 {
